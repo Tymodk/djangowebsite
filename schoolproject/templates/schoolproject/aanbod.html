@@ -1,0 +1,16 @@
+{% extends 'schoolproject/layout.html' %}
+{% block nav-aanbod %}class="active"{% endblock %}
+
+{% block content %}
+    <div>
+        <p class="h1">Ons aanbod!</p>
+      	{% for richting in richtingenArray %}
+
+        <div>
+            <h3>{{ richting.naam }}</h3>
+            <p>{{ richting.omschrijving }}</p>
+        </div>
+
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'schoolproject/layout.html' %}
+{% block nav-wie %}class="active"{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <p class="h1">Wie is wie?</p>
+      	{% for leraar in lerarenArray %}
+
+        <div style="clear:both;">
+            <h3>{{ leraar.naam }} {{ leraar.voornaam }}</h3>
+            <sub>{{ leraar.email }} </sub>
+            <p>
+            	<img class="" src=" static/{{ leraar.foto }}" alt="foto van {{ leraar.voornaam }}" style="width: 250px; height: 250px; margin-top: 15px; float:right;">       
+            </p>
+            <p class="h3">Geeft les aan:</p>
+            {% if leraar.klas %}
+            {% for klas in leraar.klas %}
+            	<p>{{ klas.naam }}</p>
+            {% endfor %}
+            {% else %}
+            <p>Deze leerkracht geeft geen les.</p>
+            {% endif %}
+            <p></p>
+        </div>
+
+    {% endfor %}
+    </div>
+{% endblock %}
