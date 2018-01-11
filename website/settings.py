@@ -25,7 +25,7 @@ SECRET_KEY = '*+av4m$9bt67)$!*b-an^o$^$&p3y1n3@wk-+ed@2jxg!!)2^n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tymodekock.pythonanywhere.com']
+ALLOWED_HOSTS = ['tymodekock.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
