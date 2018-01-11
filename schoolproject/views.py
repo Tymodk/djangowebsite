@@ -6,6 +6,7 @@ import datetime
 
 def index(request):
 	request.session['allvisited'] = "index "
+	request.session['lastvisited'] = ""
 	currentTime = datetime.datetime.now().hour
 	greeting =''
 	if currentTime < 6:
