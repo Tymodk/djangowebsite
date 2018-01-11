@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'schoolproject/static'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = '/home/Tymodekock/djangowebsite/'
 
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'schoolproject/static'),
