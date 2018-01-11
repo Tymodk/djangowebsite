@@ -5,7 +5,8 @@ from .models import Richting, Leraar, Klas, Contact
 import datetime
 
 def index(request):
-
+	if !request.session['allvisited']:
+		request.session['allvisited'] = "index "
 	currentTime = datetime.datetime.now().hour
 	greeting =''
 	if currentTime < 6:
@@ -29,14 +30,15 @@ def index(request):
 	request.session['lastvisited'] = "schoolproject:index"
 	if request.session['allvisited']:
 		request.session['allvisited'] += "- index "
-	else: 
-		request.session['allvisited'] = "index "
+	
+		
 	return response
 
 	
 
 def aanbod(request):
-	
+	if !request.session['allvisited']:
+		request.session['allvisited'] = "aanbod "
 	richtingenArray = Richting.objects.all()
 	context = {'richtingenArray': richtingenArray,  'lastvisited': request.session['lastvisited']}
 	response = render(request, 'schoolproject/aanbod.html', context)
@@ -44,12 +46,12 @@ def aanbod(request):
 	request.session['lastvisited'] = "schoolproject:aanbod"
 	if request.session['allvisited']:
 		request.session['allvisited'] += "- aanbod "
-	else: 
-		request.session['allvisited'] = "aanbod "
+	
 	return response
 
 def wie(request):
-	
+	if !request.session['allvisited']:
+		request.session['allvisited'] = "wie is wie "
 	lerarenArray = Leraar.objects.all()
 
 	for leraar in lerarenArray :		
@@ -61,20 +63,19 @@ def wie(request):
 	request.session['lastvisited'] = "schoolproject:wie"
 	if request.session['allvisited']:
 		request.session['allvisited'] += "- wie is wie "
-	else: 
-		request.session['allvisited'] = "wie is wie "
+	
 	return response
 
 def contact(request):
-	
+	if !request.session['allvisited']:
+		request.session['allvisited'] = "contact "
 	context = {'lastvisited': request.session['lastvisited']}
 	response = render(request, 'schoolproject/contact.html', context)
 
 	request.session['lastvisited'] = "schoolproject:contact"
 	if request.session['allvisited']:
 		request.session['allvisited'] += "- contact "
-	else: 
-		request.session['allvisited'] = "contact "
+	
 	return response
 
 def contactlogic(request):
