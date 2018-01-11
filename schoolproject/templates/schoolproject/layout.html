@@ -22,7 +22,11 @@
         </div>
     </nav>
     <div class="container">
-        <div class="breadcrumb"><span class="glyphicon glyphicon-chevron-left"></span><a href="{% url lastvisited %}"> Vorige pagina</a> 
+        {% if lastvisited != "" %}
+        <div class="breadcrumb"><span class="glyphicon glyphicon-chevron-left"></span><a href="{% url lastvisited %}">
+
+         Vorige pagina</a> 
+         {% endif %}
     </div>
     </div>
     
