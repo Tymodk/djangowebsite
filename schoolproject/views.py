@@ -5,9 +5,9 @@ from .models import Richting, Leraar, Klas, Contact
 import datetime
 
 def index(request):
-	if not request.session['allvisited']
+	if not request.session['allvisited']:
 		request.session['allvisited'] = "index "
-	if not request.session['lastvisited']
+	if not request.session['lastvisited']:
 		request.session['lastvisited'] = ""
 	currentTime = datetime.datetime.now().hour
 	greeting =''
@@ -41,7 +41,7 @@ def index(request):
 def aanbod(request):
 	if not request.session['allvisited']:
 		request.session['allvisited'] = "aanbod "
-	if not request.session['lastvisited']
+	if not request.session['lastvisited']:
 		request.session['lastvisited'] = ""
 	richtingenArray = Richting.objects.all()
 	context = {'richtingenArray': richtingenArray,  'lastvisited': request.session['lastvisited']}
@@ -56,7 +56,7 @@ def aanbod(request):
 def wie(request):
 	if not request.session['allvisited']:
 		request.session['allvisited'] = "wie is wie "
-	if not request.session['lastvisited']
+	if not request.session['lastvisited']:
 		request.session['lastvisited'] = ""
 	lerarenArray = Leraar.objects.all()
 
@@ -75,7 +75,7 @@ def wie(request):
 def contact(request):
 	if not request.session['allvisited']:
 		request.session['allvisited'] = "contact "
-	if not request.session['lastvisited']
+	if not request.session['lastvisited']:
 		request.session['lastvisited'] = ""
 	context = {'lastvisited': request.session['lastvisited']}
 	response = render(request, 'schoolproject/contact.html', context)
