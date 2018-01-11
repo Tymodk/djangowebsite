@@ -5,8 +5,7 @@ from .models import Richting, Leraar, Klas, Contact
 import datetime
 
 def index(request):
-	if not request.session['allvisited']:
-		request.session['allvisited'] = "index "
+	request.session['allvisited'] = "index "
 	currentTime = datetime.datetime.now().hour
 	greeting =''
 	if currentTime < 6:
