@@ -125,7 +125,7 @@ MEDIA_ROOT = 'schoolproject/static'
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'schoolproject/static'),
 )
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
