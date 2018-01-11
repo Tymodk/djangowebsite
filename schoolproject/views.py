@@ -6,7 +6,6 @@ import datetime
 
 def index(request):
 	
-	
 	currentTime = datetime.datetime.now().hour
 	greeting =''
 	if currentTime < 6:
@@ -31,9 +30,10 @@ def index(request):
 	if not 'visted' in request.COOKIES:	
 		response.set_cookie('visited', 'true', max_age = 365 * 24 * 60 * 60) 
 	request.session['lastvisited'] = "schoolproject:index"
-	if request.session['allvisited']:
-		request.session['allvisited'] += "- index "
-	else:
+	try:
+		if request.session['allvisited']:
+			request.session['allvisited'] += "- index "
+	except:
 		request.session['allvisited'] = "index "
 		
 	return response
@@ -53,9 +53,10 @@ def aanbod(request):
 	response = render(request, 'schoolproject/aanbod.html', context)
 
 	request.session['lastvisited'] = "schoolproject:aanbod"
-	if request.session['allvisited']:
-		request.session['allvisited'] += "- aanbod "
-	else:
+	try:
+		if request.session['allvisited']:
+			request.session['allvisited'] += "- aanbod "
+	except:
 		request.session['allvisited'] = "aanbod "
 	
 	return response
@@ -76,9 +77,10 @@ def wie(request):
 	response = render(request, 'schoolproject/wieiswie.html', context)
 
 	request.session['lastvisited'] = "schoolproject:wie"
-	if request.session['allvisited']:
-		request.session['allvisited'] += "- wie is wie "
-	else:
+	try:
+		if request.session['allvisited']:
+			request.session['allvisited'] += "- wie is wie "
+	except:
 		request.session['allvisited'] = "wie is wie "
 	return response
 
@@ -93,9 +95,10 @@ def contact(request):
 	response = render(request, 'schoolproject/contact.html', context)
 
 	request.session['lastvisited'] = "schoolproject:contact"
-	if request.session['allvisited']:
-		request.session['allvisited'] += "- contact "
-	else:
+	try:
+		if request.session['allvisited']:
+			request.session['allvisited'] += "- contact "
+	except:
 		request.session['allvisited'] = "contact "
 	return response
 
